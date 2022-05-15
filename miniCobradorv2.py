@@ -45,23 +45,23 @@ def eliminar_producto():
             print("")
             print("Error el codigo solo debe ser numeros.")
             print("")
-        for i in range(len(lista_ptos)):
-            if(codigo==lista_ptos[i][0]):
-                encontrado = True
-                pos = i
-                break
-        if(encontrado):
-            print("")
-            print("Producto a eliminar")
-            print(lista_ptos[i][1])
-            print("")
-            print("Lista de productos actualizada")
-            del lista_ptos[i]
-            print(lista_ptos)
-            print("")
-        else:
-            print("Producto no encontrado")
-            print("")
+    for i in range(len(lista_ptos)):
+        if(codigo==lista_ptos[i][0]):
+            encontrado = True
+            pos = i
+            break
+    if(encontrado):
+        print("")
+        print("Producto a eliminar")
+        print(lista_ptos[i][1])
+        print("")
+        print("Lista de productos actualizada")
+        del lista_ptos[i]
+        print(lista_ptos)
+        print("")
+    else:
+        print("Producto no encontrado")
+        print("")
 
 def agregar_producto_cuenta():
     print(lista_ptos)
@@ -75,20 +75,20 @@ def agregar_producto_cuenta():
             print("")
             print("Error el codigo solo debe ser numeros.")
             print("")
-        for i in range(len(lista_ptos)):
-            if(codigo==lista_ptos[i][0]):
-                encontrado = True
-                pos = i
-                break
-        if(encontrado):
-            print("")
-            cuenta.extend([lista_ptos[i]])
-            print("Se ha añadido el sioguiente producto a la cuenta: ")
-            print(cuenta[i][1])
-            print("")
-        else:
-            print("Producto no encontrado")
-            print("")
+    for i in range(len(lista_ptos)):
+        if(codigo==lista_ptos[i][0]):
+            encontrado = True
+            pos = i
+            break
+    if(encontrado):
+        print("")
+        cuenta.extend([lista_ptos[i]])
+        print("Se ha añadido el sioguiente producto a la cuenta: ")
+        print(cuenta[i][1])
+        print("")
+    else:
+        print("Producto no encontrado")
+        print("")
 
 def eliminar_producto_cuenta():
     print(cuenta)
@@ -126,7 +126,7 @@ def cobrar():
     suma_total = 0
     for i in range(len(cuenta)):
         suma_total += suma_total+cuenta[i][2]
-        print("El total de su compra es de ", "=", suma_total)
+    print("El total de su compra es de ", "=", suma_total)
 
 while(True):
     print("----------CAJA REGISTRADORA----------")
@@ -143,7 +143,7 @@ while(True):
     try:
         op = int(input("Ingrese una opción: "))
         if(op ==1):
-           agregar_producto()
+            agregar_producto()
         elif(op ==2):
             eliminar_producto()
         elif(op ==3):
@@ -154,7 +154,7 @@ while(True):
             cobrar()
         elif(op ==0):
             print("")
-            print("Adios")
+            print("Gracias por su compra")
             break
         else:
             print("")
