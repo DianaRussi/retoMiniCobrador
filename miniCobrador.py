@@ -135,9 +135,8 @@ while(True):
             print(cuenta)
             suma_total = 0
             for i in range(len(cuenta)):
-                suma_total += suma_total+cuenta[i][2]
-
-            print("El total de su compra es de ", "=", suma_total)
+                suma_total += cuenta[i][2]
+            print("El total de su compra es de: $" , suma_total)
         
         elif(op ==0):
             print("")

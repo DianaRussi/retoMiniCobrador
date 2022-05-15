@@ -34,7 +34,12 @@ def agregar_producto():
         print("")
 
 def eliminar_producto():
-    print(lista_ptos)
+    #print(lista_ptos)
+    #print("Lista de productos: %s" % lista_ptos)
+    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+    for elemento in lista_ptos:
+        codigo,nombre,precio = elemento
+        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
     encontrado = False
     while(True):
         try:
@@ -57,14 +62,22 @@ def eliminar_producto():
         print("")
         print("Lista de productos actualizada")
         del lista_ptos[i]
-        print(lista_ptos)
-        print("")
+        #print(lista_ptos)
+        print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+        for elemento in lista_ptos:
+            codigo,nombre,precio = elemento
+            print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+            print("")
     else:
         print("Producto no encontrado")
         print("")
 
 def agregar_producto_cuenta():
-    print(lista_ptos)
+    #print(lista_ptos)
+    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+    for elemento in lista_ptos:
+        codigo,nombre,precio = elemento
+        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
     encontrado = False
     while(True):
         try:
@@ -91,7 +104,11 @@ def agregar_producto_cuenta():
         print("")
 
 def eliminar_producto_cuenta():
-    print(cuenta)
+    #print(cuenta)
+    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+    for elemento in cuenta:
+        codigo,nombre,precio = elemento
+        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
     encontrado = False
     while(True):
         try:
@@ -114,7 +131,11 @@ def eliminar_producto_cuenta():
         print("")
         print("Lista de productos actualizada")
         del cuenta[i]
-        print(cuenta)
+        print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+        for elemento in cuenta:
+            codigo,nombre,precio = elemento
+            print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+        #print(cuenta)
         print("")
     else:
         print("Producto no encontrado")
@@ -122,11 +143,15 @@ def eliminar_producto_cuenta():
 
 def cobrar():
     print("")
-    print(cuenta)
+    #print(cuenta)
+    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+    for elemento in cuenta:
+        codigo,nombre,precio = elemento
+        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
     suma_total = 0
     for i in range(len(cuenta)):
-        suma_total += suma_total+cuenta[i][2]
-    print("El total de su compra es de ", "=", suma_total)
+        suma_total += cuenta[i][2]
+    print("El total de su compra es de: $" + str(suma_total))
 
 while(True):
     print("----------CAJA REGISTRADORA----------")
