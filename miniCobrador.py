@@ -76,14 +76,72 @@ while(True):
                 print("Producto no encontrado")
                 print("")
         elif(op ==3):
-            a =""
+            print(lista_ptos)
+            encontrado = False
+            while(True):
+                try:
+                    print("")
+                    codigo = int(input("Ingrese el código del producto que desea agregar a la cuenta: "))
+                    break
+                except:
+                    print("")
+                    print("Error el codigo solo debe ser numeros.")
+                    print("")
+            for i in range(len(lista_ptos)):
+                if(codigo==lista_ptos[i][0]):
+                    encontrado = True
+                    pos = i
+                    break
+            if(encontrado):
+                print("")
+                cuenta.extend([lista_ptos[i]])
+                print("Se ha añadido el sioguiente producto a la cuenta: ")
+                print(cuenta[i][1])
+                print("")
+            else:
+                print("Producto no encontrado")
+                print("")
         elif(op ==4):
-            a =""
+            print(cuenta)
+            encontrado = False
+            while(True):
+                try:
+                    print("")
+                    codigo = int(input("Ingrese el código del producto que desea eliminar de la cuenta: "))
+                    break
+                except:
+                    print("")
+                    print("Error el codigo solo debe ser numeros.")
+                    print("")
+            for i in range(len(cuenta)):
+                if(codigo==cuenta[i][0]):
+                    encontrado = True
+                    pos = i
+                    break
+            if(encontrado):
+                print("")
+                print("Producto a eliminar")
+                print(cuenta[i][1])
+                print("")
+                print("Lista de productos actualizada")
+                del cuenta[i]
+                print(cuenta)
+                print("")
+            else:
+                print("Producto no encontrado")
+                print("")
         elif(op ==5):
-            a =""
+            print("")
+            print(cuenta)
+            suma_total = 0
+            for i in range(len(cuenta)):
+                suma_total += suma_total+cuenta[i][2]
+
+            print("El total de su compra es de ", "=", suma_total)
+        
         elif(op ==0):
             print("")
-            print("Adios")
+            print("Gracias por su compra")
             break
         else:
             print("")
