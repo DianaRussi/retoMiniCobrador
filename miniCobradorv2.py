@@ -16,22 +16,22 @@ def agregar_producto():
             print("")
             print("Error el codigo solo debe ser numeros.")
             print("")
-    nompto = ""
-    while(len(nompto)<3):
-        nompto = input("Ingrese nombre del producto: ").lower()
-        if(len(nompto)<3):
-            print("El nombre del producto debe tener al menos 3 caracteres")
-    while(True):
-        try:
-            precio = int(input("Ingrese el precio del producto: "))
-            break
-        except:
-            print("")
-            print("Error el precio solo debe ser numeros.")
-            print("")
-    lista_ptos.append([codigo,nompto,precio])
-    print("Producto registrado correctamente")
-    print("")
+        nompto = ""
+        while(len(nompto)<3):
+            nompto = input("Ingrese nombre del producto: ").lower()
+            if(len(nompto)<3):
+                print("El nombre del producto debe tener al menos 3 caracteres")
+        while(True):
+            try:
+                precio = int(input("Ingrese el precio del producto: "))
+                break
+            except:
+                print("")
+                print("Error el precio solo debe ser numeros.")
+                print("")
+        lista_ptos.append([codigo,nompto,precio])
+        print("Producto registrado correctamente")
+        print("")
 
 def eliminar_producto():
     print(lista_ptos)
