@@ -1,23 +1,23 @@
 from ast import Try
 
-# Lista con productos registrados
 lista_ptos = [
     [1,"Leche",2000], 
     [2,"pan", 1500], 
     [3,"huevos", 10000], 
     [4,"cafe", 5350]]
-
-# lista vacia para los productos que se deseen agregar a la cueta
-cuenta =[]
-
-# funcion para formatear lista 
-def ver_productos_registrados():
+cuenta =[] 
+def mostrar_lista_ptos():
     print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
     for elemento in lista_ptos:
         codigo,nombre,precio = elemento
         print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
 
-# Funcion para agregar un producto a la lista de productos
+def mostrar_ptos_cuenta():
+    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+    for elemento in cuenta:
+        codigo,nombre,precio = elemento
+        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+
 def agregar_producto():
     while(True):
         try:
@@ -41,12 +41,19 @@ def agregar_producto():
             print("Error el precio solo debe ser numeros.")
             print("")
     lista_ptos.append([codigo,nompto,precio])
+    print()
     print("Producto registrado correctamente")
-    ver_productos_registrados()
+    print("------------LISTA DE PRODUCTOS ACTUALIZADA-----------")
+    print()
+    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+    for elemento in lista_ptos:
+        codigo,nombre,precio = elemento
+        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+    encontrado = False
+    print("")
 
-# funcion para eliminar un producto
 def eliminar_producto():
-    ver_productos_registrados()
+    mostrar_lista_ptos()
     encontrado = False
     while(True):
         try:
@@ -69,15 +76,17 @@ def eliminar_producto():
         print("")
         print("Lista de productos actualizada")
         del lista_ptos[i]
-        ver_productos_registrados()
+        print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+        for elemento in lista_ptos:
+            codigo,nombre,precio = elemento
+            print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+            print("")
     else:
         print("Producto no encontrado")
         print("")
 
-# función para agregar producto a la cuenta
 def agregar_producto_cuenta():
-    print("Estos productos son los disponibles para agregar a tu cuenta")
-    ver_productos_registrados()
+    mostrar_lista_ptos()
     encontrado = False
     while(True):
         try:
@@ -96,19 +105,18 @@ def agregar_producto_cuenta():
     if(encontrado):
         print("")
         cuenta.extend([lista_ptos[i]])
-        print("Se ha añadido el sioguiente producto a la cuenta: ")
-        print(cuenta[i][1])
-        print("")
+        print("-----------LISTA DE COMPRAS ACTUALIZADA------------")
+        print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+        for elemento in cuenta:
+            codigo,nombre,precio = elemento
+            print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+            print("")
     else:
         print("Producto no encontrado")
         print("")
 
 def eliminar_producto_cuenta():
-    print("Productos agregados a la cuenta")
-    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
-    for elemento in cuenta:
-        codigo,nombre,precio = elemento
-        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+    mostrar_ptos_cuenta()
     encontrado = False
     while(True):
         try:
@@ -131,11 +139,7 @@ def eliminar_producto_cuenta():
         print("")
         print("Lista de productos actualizada")
         del cuenta[i]
-        print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
-        for elemento in cuenta:
-            codigo,nombre,precio = elemento
-            print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
-        #print(cuenta)
+        mostrar_ptos_cuenta()
         print("")
     else:
         print("Producto no encontrado")
@@ -143,16 +147,11 @@ def eliminar_producto_cuenta():
 
 def cobrar():
     print("")
-    #print(cuenta)
-    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
-    for elemento in cuenta:
-        codigo,nombre,precio = elemento
-        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+    mostrar_ptos_cuenta()
     suma_total = 0
     for i in range(len(cuenta)):
         suma_total += cuenta[i][2]
     print("El total de su compra es de: $" + str(suma_total))
-    print()
 
 while(True):
     print("----------CAJA REGISTRADORA----------")
@@ -188,5 +187,5 @@ while(True):
             print("")
     except:
         print("")
-        print("Error volviendo al menu principal...")
+        print("Error...")
         print("")
