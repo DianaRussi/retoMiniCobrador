@@ -162,6 +162,7 @@ while(True):
     print("3. Añadir a la cuenta")
     print("4. Retirar de la cuenta")
     print("5. Cobrar")
+    print("6. Ver productos registrados")
     print("0 Salir")
     print("")
 
@@ -177,6 +178,8 @@ while(True):
             eliminar_producto_cuenta()
         elif(op ==5):
             cobrar()
+        elif(op == 6):
+            mostrar_lista_ptos()
         elif(op ==0):
             print("")
             print("Gracias por su compra")
