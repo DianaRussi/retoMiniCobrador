@@ -1,12 +1,23 @@
 from ast import Try
 
+# Lista con productos registrados
 lista_ptos = [
     [1,"Leche",2000], 
     [2,"pan", 1500], 
-    [3,"huwvos", 10000], 
+    [3,"huevos", 10000], 
     [4,"cafe", 5350]]
+
+# lista vacia para los productos que se deseen agregar a la cueta
 cuenta =[]
 
+# funcion para formatear lista 
+def ver_productos_registrados():
+    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
+    for elemento in lista_ptos:
+        codigo,nombre,precio = elemento
+        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+
+# Funcion para agregar un producto a la lista de productos
 def agregar_producto():
     while(True):
         try:
@@ -16,30 +27,26 @@ def agregar_producto():
             print("")
             print("Error el codigo solo debe ser numeros.")
             print("")
-        nompto = ""
-        while(len(nompto)<3):
-            nompto = input("Ingrese nombre del producto: ").lower()
-            if(len(nompto)<3):
-                print("El nombre del producto debe tener al menos 3 caracteres")
-        while(True):
-            try:
-                precio = int(input("Ingrese el precio del producto: "))
-                break
-            except:
-                print("")
-                print("Error el precio solo debe ser numeros.")
-                print("")
-        lista_ptos.append([codigo,nompto,precio])
-        print("Producto registrado correctamente")
-        print("")
+    nompto = ""
+    while(len(nompto)<3):
+        nompto = input("Ingrese nombre del producto: ").lower()
+        if(len(nompto)<3):
+            print("El nombre del producto debe tener al menos 3 caracteres")
+    while(True):
+        try:
+            precio = int(input("Ingrese el precio del producto: "))
+            break
+        except:
+            print("")
+            print("Error el precio solo debe ser numeros.")
+            print("")
+    lista_ptos.append([codigo,nompto,precio])
+    print("Producto registrado correctamente")
+    ver_productos_registrados()
 
+# funcion para eliminar un producto
 def eliminar_producto():
-    #print(lista_ptos)
-    #print("Lista de productos: %s" % lista_ptos)
-    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
-    for elemento in lista_ptos:
-        codigo,nombre,precio = elemento
-        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+    ver_productos_registrados()
     encontrado = False
     while(True):
         try:
@@ -62,22 +69,15 @@ def eliminar_producto():
         print("")
         print("Lista de productos actualizada")
         del lista_ptos[i]
-        #print(lista_ptos)
-        print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
-        for elemento in lista_ptos:
-            codigo,nombre,precio = elemento
-            print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
-            print("")
+        ver_productos_registrados()
     else:
         print("Producto no encontrado")
         print("")
 
+# función para agregar producto a la cuenta
 def agregar_producto_cuenta():
-    #print(lista_ptos)
-    print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
-    for elemento in lista_ptos:
-        codigo,nombre,precio = elemento
-        print("{:<8} {:<15} {:<10}".format(codigo,nombre,precio))
+    print("Estos productos son los disponibles para agregar a tu cuenta")
+    ver_productos_registrados()
     encontrado = False
     while(True):
         try:
@@ -104,7 +104,7 @@ def agregar_producto_cuenta():
         print("")
 
 def eliminar_producto_cuenta():
-    #print(cuenta)
+    print("Productos agregados a la cuenta")
     print("{:<8} {:<15} {:<10}".format('codigo','nombre','precio'))
     for elemento in cuenta:
         codigo,nombre,precio = elemento
@@ -152,6 +152,7 @@ def cobrar():
     for i in range(len(cuenta)):
         suma_total += cuenta[i][2]
     print("El total de su compra es de: $" + str(suma_total))
+    print()
 
 while(True):
     print("----------CAJA REGISTRADORA----------")
